@@ -31,7 +31,7 @@ jobs:
       uses: dawidd6/action-send-mail@v2
       with:
         # mail server settings
-        server_address: smtp.freesmtpservers.com
+        server_address: smtp.mailtrap.io
         server_port: 25
         # user credentials
         username: ${{ secrets.EMAIL_USERNAME }}
