@@ -27,7 +27,7 @@ jobs:
       id: id2
       run: mvn -B package --file pom.xml      
     - name: Notify dedicated teams channel
-      if: always()
+      if: success()
       uses: jdcargile/ms-teams-notification@v1.3
       with:
         if: steps.id1.outcome == 'success' && steps.id2.outcome == 'success'
@@ -37,7 +37,7 @@ jobs:
         notification-color: 28a745
         timezone: America/Denver
     - name: Notify dedicated teams channel
-      if: always()
+      if: failure()
       uses: jdcargile/ms-teams-notification@v1.3
       with:
         if: steps.id1.outcome != 'success' || steps.id2.outcome != 'success' 
