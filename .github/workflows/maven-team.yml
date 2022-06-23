@@ -42,6 +42,6 @@ jobs:
         github-token: ${{ github.token }} # this will use the runner's token.
         ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
         notification-summary: Build Failed!! 
-        if: steps.hello.outcome != 'success' || steps.world.outcome != 'success'
+        if: steps.id1.outcome != 'success' || steps.id2.outcome != 'success'
         notification-color: dc3545
         timezone: America/Denver  
