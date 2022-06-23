@@ -52,3 +52,9 @@ jobs:
         notification-summary: Your custom notification message 
         notification-color: 17a2b8
         timezone: America/Denver    
+    - name: Microsoft Teams Notification
+      uses: skitionek/notify-microsoft-teams@master
+      if: failure()
+      with:
+        webhook_url: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+
