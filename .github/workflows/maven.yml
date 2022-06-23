@@ -4,10 +4,6 @@
 name: Java CI with Maven
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
   workflow_dispatch:   
 
 jobs:
@@ -52,19 +48,5 @@ jobs:
         notification-summary: Your custom notification message 
         notification-color: 17a2b8
         timezone: America/Denver    
-    #- name: Microsoft Teams Notification
-     # uses: skitionek/notify-microsoft-teams@master
-     # if: failure()
-     # with:
-      #  webhook_url: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-    if_failure:
-    name: Only if failure
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@master
-      - name: Microsoft Teams Notification
-        uses: skitionek/notify-microsoft-teams@master
-        if: failure()
-        with:
-          webhook_url: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}    
+  
 
