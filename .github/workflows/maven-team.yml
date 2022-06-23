@@ -38,10 +38,13 @@ jobs:
       with:
         github-token: ${{ github.token }} # this will use the runner's token.
         ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+        if: steps.id1.outcome == 'success' || steps.id2.outcome == 'success'
         notification-summary: Build is sucessful!! 
         notification-color: 28a745
         timezone: America/Denver
-      if: steps.id1.outcome != 'success' || steps.id2.outcome != 'success'
+        
+    - name: Notify dedicated teams channel
+      if: steps.id1.outcome != 'success' || steps.id2.outcome != 'success'  
       uses: jdcargile/ms-teams-notification@v1.3
       with:
         github-token: ${{ github.token }} # this will use the runner's token.
