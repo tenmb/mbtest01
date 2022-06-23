@@ -28,24 +28,29 @@ jobs:
       run: mvn -B package --file pom.xml      
     - name: Notify dedicated teams channel
       if: always()
-      if: steps.id1.outcome == 'success' || steps.id2.outcome == 'success'
       uses: jdcargile/ms-teams-notification@v1.3
       with:
+        if: steps.id1.outcome == 'success' || steps.id2.outcome == 'success'
         github-token: ${{ github.token }} # this will use the runner's token.
         ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-        if: steps.id1.outcome == 'success' || steps.id2.outcome == 'success'
         notification-summary: Build is sucessful!! 
         notification-color: 28a745
         timezone: America/Denver
-
-    - name: Notify dedicated teams channel
-      if: always()
-      if: steps.id1.outcome != 'success' || steps.id2.outcome != 'success'  
-      uses: jdcargile/ms-teams-notification@v1.3
-      with:
+        if: steps.id1.outcome != 'success' || steps.id2.outcome != 'success'
         github-token: ${{ github.token }} # this will use the runner's token.
         ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-        notification-summary: Build Failed!! 
-        notification-color: dc3545
-        timezone: America/Denver 
-        run: exit 1
+        notification-summary: Build is sucessful!! 
+        notification-color: 28a745
+        timezone: America/Denver        
+
+    # - name: Notify dedicated teams channel
+    #   if: always()
+    #   if: steps.id1.outcome != 'success' || steps.id2.outcome != 'success'  
+    #   uses: jdcargile/ms-teams-notification@v1.3
+    #   with:
+    #     github-token: ${{ github.token }} # this will use the runner's token.
+    #     ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+    #     notification-summary: Build Failed!! 
+    #     notification-color: dc3545
+    #     timezone: America/Denver 
+    #     run: exit 1
