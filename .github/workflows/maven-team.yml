@@ -21,17 +21,13 @@ jobs:
       continue-on-error: true
       uses: actions/setup-java@v3
       with:
-        java-version: '11'
+        java-version: ''
         distribution: 'temurin'
         cache: maven
-      
-
     - name: Build with Maven
       id: id2
       continue-on-error: true
-      run: mvn -B package --file pom.xml
-      
-
+      run: mvn -B package --file pom.xml      
     - name: Notify dedicated teams channel
       if: steps.id1.outcome == 'success' || steps.id2.outcome == 'success'
       uses: jdcargile/ms-teams-notification@v1.3
@@ -42,7 +38,7 @@ jobs:
         notification-summary: Build is sucessful!! 
         notification-color: 28a745
         timezone: America/Denver
-        
+
     - name: Notify dedicated teams channel
       if: steps.id1.outcome != 'success' || steps.id2.outcome != 'success'  
       uses: jdcargile/ms-teams-notification@v1.3
@@ -52,4 +48,4 @@ jobs:
         notification-summary: Build Failed!! 
         notification-color: dc3545
         timezone: America/Denver 
-        run: exit 1 
+        run: exit 1
