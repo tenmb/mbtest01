@@ -1,0 +1,11 @@
+name: Testif
+on:
+  workflow_dispatch:   
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: testif
+      if: github.event.pull_request.merged == true
+        echo "Hi i am executed"  
+    

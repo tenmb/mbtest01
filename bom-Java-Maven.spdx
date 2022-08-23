@@ -1,0 +1,61 @@
+SPDXVersion: SPDX-2.2
+DataLicense: CC0-1.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentName: my-app-1.0-SNAPSHOT
+DocumentNamespace: http://spdx.org/spdxpackages/my-app-1.0-SNAPSHOT-f3e7ba68-30b8-41fb-801d-504106ac5b9d
+Creator: Tool: spdx-sbom-generator-v0.0.10
+Created: 2022-07-27T19:18:53Z
+
+##### Package representing the my-app
+
+PackageName: my-app
+SPDXID: SPDXRef-Package-my-app
+PackageVersion: 1.0-SNAPSHOT
+PackageSupplier: Organization: my-app
+PackageDownloadLocation: http://maven.apache.org
+FilesAnalyzed: false
+PackageChecksum: SHA1: 431cf07b23d0c854bce158bb3564d6dee45b4f8c
+PackageHomePage: http://maven.apache.org
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageLicenseComments: NOASSERTION
+PackageComment: NOASSERTION
+
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Package-my-app 
+
+Relationship: SPDXRef-Package-my-app DEPENDS_ON SPDXRef-Package-junit-4.13.2 
+Relationship: SPDXRef-Package-my-app DEPENDS_ON SPDXRef-Package-maven-compiler-plugin-3.8.1 
+
+##### Package representing the junit
+
+PackageName: junit
+SPDXID: SPDXRef-Package-junit-4.13.2
+PackageVersion: 4.13.2
+PackageSupplier: Organization: junit
+PackageDownloadLocation: https://mvnrepository.com/artifact/junit/junit/4.13.2
+FilesAnalyzed: false
+PackageChecksum: SHA1: fdda4a4a842bd2bb90c6bd3c8076c777264fc204
+PackageHomePage: NOASSERTION
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageLicenseComments: NOASSERTION
+PackageComment: NOASSERTION
+
+##### Package representing the maven-compiler-plugin
+
+PackageName: maven-compiler-plugin
+SPDXID: SPDXRef-Package-maven-compiler-plugin-3.8.1
+PackageVersion: 3.8.1
+PackageSupplier: Organization: maven-compiler-plugin
+PackageDownloadLocation: https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin/3.8.1
+FilesAnalyzed: false
+PackageChecksum: SHA1: 6f317c4eab5a6ef236963bf88d736bda171033ce
+PackageHomePage: NOASSERTION
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageLicenseComments: NOASSERTION
+PackageComment: NOASSERTION
+
