@@ -1,7 +1,10 @@
 name: Testif
 on:
   pull_request:
-    branches: [ main ] 
+    types:    [ merged ]
+    branches: [ main ]
+    
+
 jobs:
   build:
     runs-on: ubuntu-latest
