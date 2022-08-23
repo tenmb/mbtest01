@@ -1,7 +1,7 @@
 name: Testif
 on:
   pull_request:
-    types:    [ merged ]
+    types:    [ opened, closed ]
     branches: [ main ]
     
 
@@ -11,6 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: testif
-      if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+      #if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+      if: github.event.pull_request.merged == 'true'
       run: echo "Hi i am executed"  
     
